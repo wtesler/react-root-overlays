@@ -1,0 +1,101 @@
+#TooltipOuter {
+  --tooltip-color: #000000;
+  --tooltip-text-color: #ffffff;
+  --tooltip-shadow-color: rgba(122, 119, 112, 0.51);
+  --tooltip-arrow-size: 8px;
+  --tooltip-half-arrow-size: calc(var(--tooltip-arrow-size) / -2);
+  --tooltip-margin-left: 2px;
+  --tooltip-margin-bottom: -1px;
+
+  display: flex;
+  justify-content: center;
+}
+
+#TooltipBodyOuter {
+  max-width: 340px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+  touch-action: none;
+  user-select: none;
+  z-index: 997;
+}
+
+#TooltipBody {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--tooltip-color);
+  color: var(--tooltip-text-color);
+  border-radius: 5px;
+  font-size: 1em;
+  box-shadow: 2px 2px 6px 0px var(--tooltip-shadow-color);
+}
+
+#TooltipText {
+  margin-top: -7px;
+  padding: 18px 20px 9px 18px;
+}
+
+#TooltipClose {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  font-size: 26px;
+  right: 1px;
+  top: 1px;
+  text-align: center;
+  color: #3d0f3d;
+  cursor: pointer;
+  pointer-events: auto;
+  touch-action: auto;
+  user-select: auto;
+  align-self: flex-end;
+  margin-left: 5px;
+}
+
+@media (hover: hover) {
+  #TooltipClose:hover {
+    color: #5d5b5d;
+  }
+}
+
+#TooltipOverlay {
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  user-select: none;
+  z-index: 999;
+  pointer-events: auto;
+}
+
+#TooltipArrowOuter {
+  width: 100%;
+  position: relative;
+  height: var(--tooltip-arrow-size);
+}
+
+#TooltipArrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: var(--tooltip-arrow-size) solid transparent;
+  border-right: var(--tooltip-arrow-size) solid transparent;
+}
+
+.TooltipArrowTop {
+  border-bottom: var(--tooltip-arrow-size) solid var(--tooltip-color);
+}
+
+.TooltipArrowBottom {
+  border-top: var(--tooltip-arrow-size) solid var(--tooltip-color);
+}

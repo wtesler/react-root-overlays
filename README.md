@@ -1,69 +1,57 @@
-## react-cms-firestore
+## react-root-overlays
+Useful fullscreen react components such as Toast, FullscreenDialog, and Tooltip.
 
-
-Wrap your component in `withCms` to have `props.cms` injected into your components.
-
-CMS data is downloaded from the Firestore.
-
-the second argument to `withCms` defines the CMS entries injected into the component.
-
-Import looks like:
-
-`import {withCms} from "react-cms-firestore";`
-
-Usage often looks like this:
-
-`export default withCms(MyScreen, 'MyScreenData');`
-
-or 
-
-`export default withCms(MyComponent, ['entry1', 'entry2']);`
-
-
-Then the data can be accessed like:
-
+Wrap your website high up with `RootOverlays` component. It may look like:
 ```
-const {cms} = props;
-const {footerCms, headerCms} = cms;
-const {footerTitle} = footerCms;
-const {headerLogoUrl} = headerCms;
-...
+        <RootOverlays>
+          <BrowserRouter>
+
+          </BrowserRouter>
+        </RootOverlays>
 ```
 
+This package uses `react-hoc-di` to pass relays through to all children.
+The relays are: `toastRelay`, `dialogRelay`, and `tooltipRelay`.
+They are accessed like `props.module.toastRelay`.
 
-### Initialization
+Call `show` on the relays to make the respective components appear.
 
-Add a collection called `cms` to your Firestore.
-Add a collection called `cms-editor` to your Firestore.
-Add a collection called `roles` to your Firestore.
+Call `show(null)` on the relay to hide the respective component.
 
-`roles` contains documents where each document id is a uid and
-the document data looks like:
+Each component has unique `show` parameters.
+
+###Toast
 ```
-{
-    editor: true
-}
-```
-
-####Security Rules
-```
-function isEditor() {
-  return request.auth != null && get(/databases/$(database)/documents/roles/$(request.auth.uid)).data.editor == true;
-}
-
-match /cms/{id} {
-  allow read: if true;
-  allow write: if isEditor();
-}
-
-match /cms-editor/{id} {
-  allow read: if isEditor();
-  allow write: if isEditor();
-}
+  /**
+   * @param message The message to show.
+   * @param blocking Whether user interaction should be blocked when the toast is showing.
+   * @param durationMs How long should the toast last. If null, then until `show(null)` is called.
+   * @param delayMs Amount of time to delay before showing toast
+   * @param isAtTop Should it show at the top?
+   */
 ```
 
+###Fullscreen Dialog
+```
+  /**
+   * @param ele The react component to insert into the dialog. Can be null.
+   * @param cancellable Whether it can be cancelled. Can be null.
+   * @param className to apply to outer dialog. Can be null.
+   */
+```
 
-The Firestore needs to be initialized in the code before `withCms` is used.
+###Tooltip
+```
+  /**
+   * @param message The message to show.
+   * @param element The react element which this tooltip should be aligned to.
+   * @param blocking Whether user interaction should be blocked when the tooltip is showing.
+   * @param durationMs How long should the tooltip last. If null, then until `show(null)` is called.
+   * @param delayMs Amount of time to delay before showing tooltip
+   * @param closable Is there a close button on the tooltip?
+   * @param overrideSide A string like 'bottom' to force the tooltip to a certain side.
+   */
+```
 
 ### For Developer
 

@@ -1,0 +1,39 @@
+#ToastOuter {
+  display: flex;
+  justify-content: center;
+}
+
+#Toast {
+  max-width: 340px;
+  top: 30px;
+  pointer-events: none;
+  touch-action: none;
+  user-select: none;
+  flex-grow: 0;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #212121;
+  color: #e6e6e6;
+  border-radius: 5px;
+  position: fixed;
+  font-size: 1.1em;
+  padding: 11px 20px 10px 20px;
+  box-shadow: 2px 2px 4px 0px #262626;
+  z-index: 999;
+  letter-spacing: 1px;
+}
+
+#ToastOverlay {
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  user-select: none;
+  z-index: 999;
+  pointer-events: auto;
+}
