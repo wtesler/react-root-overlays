@@ -34,11 +34,17 @@
   top: 1.5%;
   right: 2.3%;
   cursor: pointer;
+  -webkit-user-select: none;
+  -ms-user-select: none;
   user-select: none;
-  font-size: 26px;
+  font-size: 36px;
   color: #6f6f6f;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #FullscreenDialogClose:hover {
-  color: #9a0000;
+  color: #991a1a;
 }
