@@ -235,11 +235,11 @@ const Tooltip = props => {
       return null;
     }
     return (
-      <div id='TooltipClose' onClick={_onCloseClick}>
+      <div id='TooltipClose' onClick={_onCloseClick} style={bodyStyle}>
         {'×'}
       </div>
     );
-  }, [closeable, _onCloseClick]);
+  }, [closeable, _onCloseClick, bodyStyle]);
 
   const content = useMemo(() => {
     if (!showing) {
