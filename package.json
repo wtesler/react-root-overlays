@@ -1,6 +1,6 @@
 {
   "name": "react-root-overlays",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "A set of useful react components such as Toast, FullscreenDialog, and Tooltip which exist high in the hierarchy",
   "author": "Will Tesler",
   "license": "Apache-2.0",
@@ -39,13 +39,6 @@
   ],
   "babel": {
     "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "useBuiltIns": "entry",
-          "corejs": 3
-        }
-      ],
       "@babel/preset-react"
     ],
     "plugins": []

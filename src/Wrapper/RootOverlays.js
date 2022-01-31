@@ -13,13 +13,13 @@ const RootOverlays = ({children, module}) => {
   const {toastRelay, tooltipRelay, dialogRelay} = module;
   let element = children;
   if (!dialogRelay) {
-    element = (<FullscreenDialog> {children} </FullscreenDialog>);
+    element = (<FullscreenDialog> {element} </FullscreenDialog>);
   }
   if (!tooltipRelay) {
-    element = (<Tooltip> {children} </Tooltip>);
+    element = (<Tooltip> {element} </Tooltip>);
   }
   if (!toastRelay) {
-    element = (<Toast> {children} </Toast>);
+    element = (<Toast> {element} </Toast>);
   }
   return element;
 }
