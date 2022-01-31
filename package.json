@@ -1,6 +1,6 @@
 {
   "name": "react-root-overlays",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A set of useful react components such as Toast, FullscreenDialog, and Tooltip which exist high in the hierarchy",
   "author": "Will Tesler",
   "license": "Apache-2.0",
@@ -20,7 +20,7 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "react-hoc-di": "^1.1.6"
+    "react-hoc-di": "^1.1.7"
   },
   "peerDependencies": {
     "react": "^17"
