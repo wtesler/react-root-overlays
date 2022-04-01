@@ -17,6 +17,7 @@
 #FullscreenDialogInner {
   width: fit-content;
   height: fit-content;
+  max-width: 96%;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 10px;
   display: flex;
   justify-content: center;
